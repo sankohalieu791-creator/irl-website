@@ -1,5 +1,5 @@
 "use client"
-
+import Image from "next/image"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 
@@ -95,17 +95,18 @@ export default function About() {
   position: "sticky",
   top: "100px"
 }}>
-  <img
-    src="/alieu.jpg"
-    alt="Alieu — Founder of IRL"
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      objectPosition: "center top",
-      display: "block"
-    }}
-  />
+  <Image
+  src="/alieu.jpg"
+  alt="Alieu — Founder of IRL"
+  width={600}
+  height={800}
+  style={{
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "center top"
+  }}
+/>
 </div>
 
           {/* Story text */}
