@@ -5,13 +5,9 @@ export const metadata: Metadata = {
   title: "IRL — In Real Life",
   description: "Rewiring the reward system of a generation.",
   icons: {
-    icon: "/irl-icon.png",
-    shortcut: "/irl-icon.png",
-    apple: "/irl-icon.png",
-    other: {
-      rel: "apple-touch-icon-precomposed",
-      url: "/irl-icon.png",
-    },
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 }
 
@@ -23,8 +19,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/irl-icon.png" type="image/png"/>
-        <link rel="shortcut icon" href="/irl-icon.png" type="image/png"/>
+        <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
       </head>
       <body style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
         {children}
