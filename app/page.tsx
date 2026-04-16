@@ -1,515 +1,207 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function Home() {
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  function handleWaitlist(e: React.FormEvent) {
-    e.preventDefault()
-    if (!email) return
-    setSubmitted(true)
-  }
+  const router = useRouter()
 
   return (
-    <div style={{ background: "#080808", minHeight: "100vh", color: "white" }}>
+    <main style={{ background: "#050508", minHeight: "100vh", color: "white", fontFamily: "'DM Sans', sans-serif", overflowX: "hidden" }}>
+
+      {/* GOOGLE FONTS */}
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        .syne { font-family: 'Syne', sans-serif; }
+        .gradient-text {
+          background: linear-gradient(135deg, #00D4FF, #B400FF);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .btn-primary {
+          background: linear-gradient(135deg, #B400FF, #00D4FF);
+          color: white;
+          padding: 16px 36px;
+          border-radius: 100px;
+          font-family: 'Syne', sans-serif;
+          font-size: 15px;
+          font-weight: 700;
+          text-decoration: none;
+          display: inline-block;
+          box-shadow: 0 8px 40px rgba(180,0,255,0.35);
+          transition: transform 0.2s, box-shadow 0.2s;
+          border: none;
+          cursor: pointer;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 50px rgba(180,0,255,0.5); }
+        .btn-secondary {
+          background: rgba(255,255,255,0.05);
+          color: white;
+          border: 1px solid rgba(255,255,255,0.07);
+          padding: 16px 36px;
+          border-radius: 100px;
+          font-family: 'Syne', sans-serif;
+          font-size: 15px;
+          font-weight: 600;
+          text-decoration: none;
+          display: inline-block;
+          transition: background 0.2s;
+          cursor: pointer;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+        .feature-card {
+          background: #0d0d12;
+          border: 1px solid rgba(255,255,255,0.07);
+          border-radius: 20px;
+          padding: 36px 32px;
+          transition: border-color 0.3s, transform 0.3s;
+        }
+        .feature-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); }
+        .step { display: flex; gap: 28px; align-items: flex-start; padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .step:last-child { border-bottom: none; }
+        .step-num {
+          width: 52px; height: 52px; border-radius: 50%;
+          background: linear-gradient(135deg, #B400FF, #00D4FF);
+          display: flex; align-items: center; justify-content: center;
+          font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 800; color: white;
+          flex-shrink: 0;
+        }
+        .who-card {
+          background: #0d0d12;
+          border-radius: 24px;
+          padding: 40px 36px;
+        }
+        .check-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.5; }
+        .check-list li::before { content: '✓'; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+        nav a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: white; }
+        @media (max-width: 768px) {
+          .desktop-nav { display: none !important; }
+          .hero-h1 { font-size: 52px !important; }
+          .two-col { grid-template-columns: 1fr !important; }
+          .three-col { grid-template-columns: 1fr !important; }
+          .stats-row { flex-wrap: wrap !important; }
+          .stat-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; }
+          .cta-banner { padding: 48px 28px !important; }
+        }
+      `}</style>
 
       {/* NAV */}
-      <nav
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          padding: "0 48px",
-          height: "72px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          background: scrolled ? "rgba(8,8,8,0.95)" : "transparent",
-          backdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "none",
-          transition: "all 0.3s ease"
-        }}
-      >
-        {/* Logo */}
-        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-          <span style={{ fontSize: "22px", fontWeight: 900, letterSpacing: "-1px", color: "white" }}>IR</span>
-          <span style={{
-            fontSize: "20px",
-            fontWeight: 900,
-            padding: "2px 8px",
-            background: "#B400FF",
-            color: "#00D4FF",
-            border: "2px solid #00D4FF",
-            letterSpacing: "-1px"
-          }}>L</span>
-        </div>
-
-        {/* Links */}
-        <div style={{ display: "flex", alignItems: "center", gap: "40px" }}>
-          <Link href="/institutions" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500, transition: "color 0.2s" }}
-            onMouseEnter={e => (e.currentTarget.style.color = "white")}
-            onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
-          >
-            For Institutions
-          </Link>
-          <Link href="/about" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}
-            onMouseEnter={e => (e.currentTarget.style.color = "white")}
-            onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
-          >
-            About
-          </Link>
-          <Link href="/institutions#demo" style={{
-            padding: "10px 20px",
-            background: "white",
-            color: "#080808",
-            fontSize: "13px",
-            fontWeight: 700,
-            textDecoration: "none",
-            borderRadius: "8px",
-            transition: "opacity 0.2s"
-          }}
-            onMouseEnter={e => (e.currentTarget.style.opacity = "0.85")}
-            onMouseLeave={e => (e.currentTarget.style.opacity = "1")}
-          >
-            Book a Demo
-          </Link>
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        padding: "20px 40px",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        background: "rgba(5,5,8,0.9)", backdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(255,255,255,0.07)"
+      }}>
+        <a href="/" style={{ fontFamily: "'Syne',sans-serif", fontSize: 22, fontWeight: 800, textDecoration: "none", display: "flex", alignItems: "center", gap: 2 }}>
+          <span style={{ color: "white" }}>IR</span>
+          <span style={{ background: "#B400FF", color: "#00D4FF", padding: "2px 8px", border: "2px solid #00D4FF", fontSize: 18, fontWeight: 800, fontFamily: "'Syne',sans-serif" }}>L</span>
+        </a>
+        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 32 }}>
+          <nav style={{ display: "flex", gap: 32, alignItems: "center", background: "none", border: "none", padding: 0 }}>
+            <a href="#problem">The Problem</a>
+            <a href="#solution">What We Do</a>
+            <a href="#institutions">Institutions</a>
+            <a href="#orgs">Youth Orgs</a>
+          </nav>
+          <a href="https://app.joinirl.co.uk" className="btn-primary" style={{ padding: "10px 22px", fontSize: 14 }}>
+            Launch App ⚡
+          </a>
         </div>
       </nav>
 
       {/* HERO */}
       <section style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-        padding: "120px 48px 80px",
-        position: "relative",
-        overflow: "hidden"
+        minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center",
+        textAlign: "center", padding: "120px 24px 80px", position: "relative", overflow: "hidden"
       }}>
-
-        {/* Subtle glow */}
         <div style={{
-          position: "absolute",
-          top: "30%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "600px",
-          height: "600px",
-          background: "radial-gradient(circle, rgba(180,0,255,0.08) 0%, transparent 70%)",
-          pointerEvents: "none"
+          position: "absolute", inset: 0,
+          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(180,0,255,0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0,212,255,0.08) 0%, transparent 50%)"
         }} />
-
-        {/* Tag */}
-        <div style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: "8px",
-          padding: "8px 16px",
-          borderRadius: "100px",
-          border: "1px solid rgba(255,255,255,0.12)",
-          marginBottom: "48px",
-          fontSize: "12px",
-          fontWeight: 600,
-          color: "rgba(255,255,255,0.5)",
-          letterSpacing: "0.5px"
-        }}>
-          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#B400FF", display: "inline-block" }} />
-          NOW ONBOARDING FOUNDING INSTITUTIONS
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 860 }}>
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 8,
+            background: "rgba(0,212,255,0.08)", border: "1px solid rgba(0,212,255,0.2)",
+            borderRadius: 100, padding: "6px 16px", fontSize: 12, fontWeight: 600,
+            color: "#00D4FF", letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: 32
+          }}>
+            ⚡ The world's first real life achievement platform
+          </div>
+          <h1 className="syne hero-h1" style={{ fontSize: 88, fontWeight: 800, color: "white", letterSpacing: -2, marginBottom: 8, lineHeight: 1.05 }}>
+            Real Life.<br /><span className="gradient-text">Real Rewards.</span>
+          </h1>
+          <p style={{ fontSize: 20, color: "rgba(255,255,255,0.45)", maxWidth: 580, margin: "0 auto 48px", fontWeight: 300, lineHeight: 1.65 }}>
+            IRL rewards young people for doing real things in the real world — not for how they look online. Built for a generation that deserves better than a like button.
+          </p>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="https://app.joinirl.co.uk" className="btn-primary">⚡ Try the App Free</a>
+            <a href="mailto:alieu@joinirl.co.uk" className="btn-secondary">Get in Touch</a>
+          </div>
         </div>
-
-        {/* Headline */}
-        <h1 style={{
-          fontSize: "clamp(52px, 8vw, 100px)",
-          fontWeight: 900,
-          lineHeight: 1.0,
-          letterSpacing: "-3px",
-          marginBottom: "32px",
-          maxWidth: "900px"
-        }}>
-          Your Effort<br />
-          Finally Means<br />
-          <span style={{ color: "#B400FF" }}>Something.</span>
-        </h1>
-
-        {/* Subheadline */}
-        <p style={{
-          fontSize: "18px",
-          color: "rgba(255,255,255,0.45)",
-          maxWidth: "520px",
-          lineHeight: 1.7,
-          fontWeight: 400,
-          marginBottom: "56px"
-        }}>
-          IRL rewards young people for real world achievement.
-          Not likes. Not followers. Not appearance.
-          What you actually do.
-        </p>
-
-        {/* CTA */}
-        <form onSubmit={handleWaitlist} style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
-          {!submitted ? (
-            <>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                style={{
-                  padding: "14px 20px",
-                  borderRadius: "10px",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  background: "rgba(255,255,255,0.06)",
-                  color: "white",
-                  fontSize: "14px",
-                  outline: "none",
-                  width: "280px"
-                }}
-              />
-              <button type="submit" style={{
-                padding: "14px 24px",
-                borderRadius: "10px",
-                background: "white",
-                color: "#080808",
-                fontSize: "14px",
-                fontWeight: 700,
-                border: "none",
-                cursor: "pointer"
-              }}>
-                Join Waitlist
-              </button>
-            </>
-          ) : (
-            <div style={{
-              padding: "14px 24px",
-              borderRadius: "10px",
-              border: "1px solid rgba(0,212,255,0.4)",
-              color: "#00D4FF",
-              fontSize: "14px",
-              fontWeight: 600
-            }}>
-              ✓ You are on the list
-            </div>
-          )}
-        </form>
-
-        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.25)" }}>
-          Free forever for founding members. No credit card required.
-        </p>
       </section>
-
-      {/* DIVIDER */}
-      <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", margin: "0 48px" }} />
 
       {/* STATS */}
-      <section style={{ padding: "120px 48px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "2px", color: "rgba(255,255,255,0.3)", marginBottom: "80px", textAlign: "center" }}>
-            THE EVIDENCE
-          </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "64px", textAlign: "center" }}>
-            {[
-              { val: "1 in 6", label: "young people have a diagnosable mental health condition", src: "NHS, 2023" },
-              { val: "52%", label: "of teenagers feel inadequate from social media", src: "APA, 2023" },
-              { val: "40%", label: "decline in youth physical activity over a decade", src: "WHO" },
-              { val: "72%", label: "of parents say social media harms their child", src: "Ofcom, 2024" },
-            ].map((s, i) => (
-              <div key={i}>
-                <p style={{
-                  fontSize: "52px",
-                  fontWeight: 900,
-                  letterSpacing: "-2px",
-                  color: i === 0 || i === 2 ? "#B400FF" : "#00D4FF",
-                  marginBottom: "12px",
-                  lineHeight: 1
-                }}>
-                  {s.val}
-                </p>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", lineHeight: 1.6, marginBottom: "8px" }}>
-                  {s.label}
-                </p>
-                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.2)" }}>{s.src}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DIVIDER */}
-      <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", margin: "0 48px" }} />
-
-      {/* PROBLEM */}
-      <section style={{ padding: "160px 48px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div style={{ maxWidth: "640px", marginBottom: "100px" }}>
-            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "2px", color: "rgba(255,255,255,0.3)", marginBottom: "32px" }}>
-              THE PROBLEM
-            </p>
-            <h2 style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 900, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "32px" }}>
-              The problem isn't<br />the phone.
-            </h2>
-            <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8 }}>
-              It's what the phone rewards. Social media was built to reward appearance, popularity and vanity. Not effort. Not achievement. Not real contribution.
-            </p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "2px" }}>
-            {[
-              { label: "Appearance over effort" },
-              { label: "Popularity over achievement" },
-              { label: "Vanity over contribution" },
-              { label: "Comparison over progress" },
-            ].map((p, i) => (
-              <div key={i} style={{
-                padding: "48px",
-                background: "rgba(255,255,255,0.02)",
-                borderTop: "1px solid rgba(255,255,255,0.06)"
-              }}>
-                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", marginBottom: "12px", letterSpacing: "1px" }}>
-                  0{i + 1}
-                </p>
-                <p style={{ fontSize: "20px", fontWeight: 700, color: "rgba(255,255,255,0.6)" }}>
-                  {p.label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div style={{
-            marginTop: "2px",
-            padding: "48px",
-            background: "rgba(180,0,255,0.06)",
-            borderTop: "1px solid rgba(180,0,255,0.2)"
-          }}>
-            <p style={{ fontSize: "20px", fontWeight: 600, color: "rgba(255,255,255,0.7)", lineHeight: 1.6, maxWidth: "700px" }}>
-              Banning phones doesn't fix this. Awareness campaigns don't fix this. The only thing that fixes this is{" "}
-              <span style={{ color: "white", fontWeight: 700 }}>redesigning what gets rewarded.</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* DIVIDER */}
-      <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", margin: "0 48px" }} />
-
-      {/* SOLUTION */}
-      <section style={{ padding: "160px 48px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div style={{ maxWidth: "640px", marginBottom: "100px" }}>
-            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "2px", color: "rgba(255,255,255,0.3)", marginBottom: "32px" }}>
-              THE SOLUTION
-            </p>
-            <h2 style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 900, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "32px" }}>
-              We rewired<br />the reward system.
-            </h2>
-            <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8 }}>
-              IRL — In Real Life — rewards young people for what they actually do. Complete real world challenges. Earn LinkPoints. Climb the leaderboard. Unlock real rewards.
-            </p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2px" }}>
-            {[
-              { icon: "⚡", name: "Sessions", desc: "Complete real world challenges set by your institution. Sport. Study. Creative. Community." },
-              { icon: "🏆", name: "Leaderboard", desc: "Rank against your school and every institution on the platform. Based on effort only." },
-              { icon: "💎", name: "Rewards", desc: "Earn LP and unlock achievements. From First Step all the way to IRL Immortal." },
-              { icon: "👥", name: "Groups", desc: "Represent your institution as a team. Compete against every other school on the platform." },
-            ].map((f, i) => (
-              <div key={i} style={{
-                padding: "48px 32px",
-                background: "rgba(255,255,255,0.02)",
-                borderTop: "1px solid rgba(255,255,255,0.06)"
-              }}>
-                <p style={{ fontSize: "28px", marginBottom: "20px" }}>{f.icon}</p>
-                <p style={{ fontSize: "16px", fontWeight: 700, color: "white", marginBottom: "12px" }}>{f.name}</p>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.35)", lineHeight: 1.7 }}>{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DIVIDER */}
-      <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", margin: "0 48px" }} />
-
-      {/* VISION */}
-      <section style={{ padding: "160px 48px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div style={{ maxWidth: "640px", marginBottom: "100px" }}>
-            <p style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "2px", color: "rgba(255,255,255,0.3)", marginBottom: "32px" }}>
-              THE VISION
-            </p>
-            <h2 style={{ fontSize: "clamp(40px, 5vw, 64px)", fontWeight: 900, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "32px" }}>
-              This is just<br />the beginning.
-            </h2>
-            <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8 }}>
-              The platform is Phase 1. What comes next will change the relationship between young people and the world around them.
-            </p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "2px" }}>
-            {[
-              {
-                phase: "Phase 1",
-                name: "IRL Platform",
-                status: "Live Now",
-                desc: "Sessions, leaderboards, rewards and groups. Your students can start earning LP and competing today.",
-                active: true
-              },
-              {
-                phase: "Phase 2",
-                name: "IRL Pass",
-                status: "Coming Soon",
-                desc: "Your effort becomes currency. Open IRL, check your LP and walk into a partner store — and pay with your LinkPoints.",
-                active: false
-              },
-              {
-                phase: "Phase 3",
-                name: "IRL Hub",
-                status: "The Future",
-                desc: "Physical spaces. Sport pitches. Study lounges. Music studios. Designed to replace screen time with real experience.",
-                active: false
-              },
-            ].map((v, i) => (
-              <div key={i} style={{
-                padding: "56px 40px",
-                background: v.active ? "rgba(180,0,255,0.06)" : "rgba(255,255,255,0.02)",
-                borderTop: `1px solid ${v.active ? "rgba(180,0,255,0.3)" : "rgba(255,255,255,0.06)"}`,
-                position: "relative"
-              }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "32px" }}>
-                  <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.25)", letterSpacing: "1px" }}>{v.phase}</p>
-                  <p style={{
-                    fontSize: "10px",
-                    fontWeight: 700,
-                    padding: "4px 10px",
-                    borderRadius: "100px",
-                    background: v.active ? "rgba(180,0,255,0.2)" : "rgba(255,255,255,0.06)",
-                    color: v.active ? "#B400FF" : "rgba(255,255,255,0.3)",
-                    letterSpacing: "0.5px"
-                  }}>
-                    {v.status}
-                  </p>
-                </div>
-                <p style={{ fontSize: "24px", fontWeight: 800, color: "white", marginBottom: "16px", letterSpacing: "-0.5px" }}>
-                  {v.name}
-                </p>
-                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.35)", lineHeight: 1.8 }}>{v.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section style={{ padding: "160px 48px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto", textAlign: "center" }}>
-          <h2 style={{
-            fontSize: "clamp(48px, 7vw, 88px)",
-            fontWeight: 900,
-            letterSpacing: "-3px",
-            lineHeight: 1.0,
-            marginBottom: "32px"
-          }}>
-            Be part of this<br />
-            <span style={{ color: "#B400FF" }}>from day one.</span>
-          </h2>
-          <p style={{
-            fontSize: "18px",
-            color: "rgba(255,255,255,0.4)",
-            maxWidth: "480px",
-            margin: "0 auto 56px",
-            lineHeight: 1.7
-          }}>
-            Every LP earned now carries forward forever. Join the waitlist before everyone else arrives.
-          </p>
-          <form onSubmit={handleWaitlist} style={{ display: "flex", gap: "12px", justifyContent: "center", marginBottom: "16px" }}>
-            {!submitted ? (
-              <>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  style={{
-                    padding: "14px 20px",
-                    borderRadius: "10px",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    background: "rgba(255,255,255,0.06)",
-                    color: "white",
-                    fontSize: "14px",
-                    outline: "none",
-                    width: "280px"
-                  }}
-                />
-                <button type="submit" style={{
-                  padding: "14px 24px",
-                  borderRadius: "10px",
-                  background: "white",
-                  color: "#080808",
-                  fontSize: "14px",
-                  fontWeight: 700,
-                  border: "none",
-                  cursor: "pointer"
-                }}>
-                  Join Waitlist — Free
-                </button>
-              </>
-            ) : (
-              <div style={{
-                padding: "14px 24px",
-                borderRadius: "10px",
-                border: "1px solid rgba(0,212,255,0.4)",
-                color: "#00D4FF",
-                fontSize: "14px",
-                fontWeight: 600
-              }}>
-                ✓ You are on the list
-              </div>
-            )}
-          </form>
-          <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.2)" }}>No spam. Ever. Just your invite when we launch.</p>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer style={{
-        padding: "48px",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center"
+      <div className="stats-row" style={{
+        padding: "48px 24px", borderTop: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)",
+        display: "flex", justifyContent: "center"
       }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "2px" }}>
-          <span style={{ fontSize: "18px", fontWeight: 900, letterSpacing: "-1px", color: "white" }}>IR</span>
-          <span style={{
-            fontSize: "16px",
-            fontWeight: 900,
-            padding: "2px 6px",
-            background: "#B400FF",
-            color: "#00D4FF",
-            border: "2px solid #00D4FF"
-          }}>L</span>
-        </div>
-        <div style={{ display: "flex", gap: "32px" }}>
-          <Link href="/institutions" style={{ color: "rgba(255,255,255,0.3)", fontSize: "13px", textDecoration: "none" }}>Institutions</Link>
-          <Link href="/about" style={{ color: "rgba(255,255,255,0.3)", fontSize: "13px", textDecoration: "none" }}>About</Link>
-        </div>
-        <p style={{ fontSize: "12px", color: "rgba(255,255,255,0.2)" }}>© 2025 IRL Connect Ltd</p>
-      </footer>
+        {[
+          { num: "5", color: "#00D4FF", label: "Young lives lost to suicide every day in the UK" },
+          { num: "73%", color: "white", label: "Cut in UK youth services since 2010" },
+          { num: "54%", color: "#B400FF", label: "Rise in knife crime over the last decade" },
+          { num: "1.9M", color: "#00D4FF", label: "Young people on NHS mental health waiting lists" },
+        ].map((s, i) => (
+          <div key={i} className="stat-item" style={{
+            flex: 1, minWidth: 160, maxWidth: 220, textAlign: "center", padding: "0 32px",
+            borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none"
+          }}>
+            <div className="syne" style={{ fontSize: 38, fontWeight: 800, color: s.color, lineHeight: 1, marginBottom: 8 }}>{s.num}</div>
+            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.5 }}>{s.label}</div>
+          </div>
+        ))}
+      </div>
 
-    </div>
+      {/* THE PROBLEM */}
+      <section id="problem" style={{ padding: "100px 24px" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "2.5px", textTransform: "uppercase", color: "#00D4FF", marginBottom: 16 }}>The Problem</p>
+          <h2 className="syne" style={{ fontSize: 48, fontWeight: 800, color: "white", letterSpacing: -1, marginBottom: 20, lineHeight: 1.1 }}>
+            This is happening everywhere.<br />Right now.
+          </h2>
+          <p style={{ fontSize: 17, color: "rgba(255,255,255,0.4)", maxWidth: 640, lineHeight: 1.8, marginBottom: 60 }}>
+            Since 2012 — the year smartphones became the default for teenagers — every mental health metric for young people has moved in the wrong direction. The problem is not the phone. It is what the phone rewards.
+          </p>
+
+          <div className="three-col" style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 2 }}>
+            {[
+              { flag: "🇬🇧", country: "United Kingdom", stat: "5 / day", desc: "Suicide is the leading cause of death for people aged 5 to 35. 1.9 million young people on NHS mental health waiting lists. Youth services cut by 73%." },
+              { flag: "🇺🇸", country: "United States", stat: "National Crisis", desc: "The US Surgeon General declared youth mental health a national emergency. Teen depression has tripled since 2007. Suicide is the second leading cause of death for ages 10 to 34." },
+              { flag: "🇦🇺", country: "Australia", stat: "75%", desc: "75% of mental health conditions emerge before age 25. Suicide is the leading cause of death for 15 to 44 year olds. Australia banned social media for under 16s in 2024." },
+              { flag: "🌍", country: "Global", stat: "Every 40s", desc: "One person dies by suicide every 40 seconds worldwide. Young people are the fastest growing demographic. Governments everywhere are out of ideas." },
+            ].map((c, i) => (
+              <div key={i} style={{ background: "#0d0d12", border: "1px solid rgba(255,255,255,0.07)", padding: "40px 28px", position: "relative" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg, #B400FF, #00D4FF)" }} />
+                <div style={{ fontSize: 30, marginBottom: 14 }}>{c.flag}</div>
+                <div className="syne" style={{ fontSize: 12, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#00D4FF", marginBottom: 10 }}>{c.country}</div>
+                <div className="syne" style={{ fontSize: 30, fontWeight: 800, color: "white", lineHeight: 1, marginBottom: 10 }}>{c.stat}</div>
+                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.7 }}>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ marginTop: 48, background: "#0d0d12", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 20, padding: "40px 36px" }}>
+            <h3 className="syne" style={{ fontSize: 22, fontWeight: 800, color: "white", marginBottom: 14 }}>Social media is not the problem. What it rewards is.</h3>
+            <p style={{ fontSize: 16, color: "rgba(255,255,255,0.4)", lineHeight: 1.8, maxWidth: 700 }}>
+              Platforms built an economy of comparison — where a young person's worth is measured by likes, followers and how they look against everyone else's highlight reel. They gave young people a currency they can never win with. And they took away the one thing that actually builds identity, resilience and belonging. Real life.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
