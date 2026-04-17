@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 
-export default function Institutions() {
+export default function Org() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -14,42 +14,35 @@ export default function Institutions() {
 
   const features = [
     {
+      icon: "🌍",
+      title: "Your own community on the platform",
+      desc: "Create your community page on IRL. Your name, your sessions, your leaderboard. Young people press Link to join instantly — no approval process, no friction. Your community grows every time someone new discovers you through the Hub."
+    },
+    {
       icon: "⚡",
-      title: "Post sessions directly to your students",
-      desc: "Create challenges — sport, community, creative, academic — and they appear instantly in your students' feed. Morning run. Volunteering day. Skill session. Whatever you want them to do, post it."
+      title: "Post sessions that appear on the Hub",
+      desc: "You post a boxing session. A volunteering challenge. A community clean-up. It goes live on the Hub feed — the same TikTok-style feed seen by every IRL user. Your sessions get visibility far beyond your existing members."
     },
     {
-      icon: "📊",
-      title: "See who is engaging and who has gone quiet",
-      desc: "Your admin dashboard shows you real time engagement data. Who completed sessions this week. Who hasn't touched the app. Who is leading the leaderboard. Visibility that doesn't stop when the bell rings."
-    },
-    {
-      icon: "✓",
-      title: "Review proof and award recognition",
-      desc: "Students upload proof of their completed sessions. You review it from your dashboard and accept or decline. Accepted proofs award LP instantly and trigger notifications of achievement."
-    },
-    {
-      icon: "👥",
-      title: "Create groups and manage your community",
-      desc: "Build groups for your year groups, sports teams or clubs. Send announcements, track group LP, manage membership. A group leaderboard shows which team is putting in the most work."
+      icon: "📈",
+      title: "Track your community's total impact",
+      desc: "Your community dashboard shows total members, total sessions completed, total LP earned and how many people have pressed Link on your community. Real data on your real world impact."
     },
     {
       icon: "🏆",
-      title: "Add real world rewards for your students",
-      desc: "Partner with local businesses or create your own rewards. Students spend their LP on real things — discounts, experiences, recognition. You control what's available and what it costs."
+      title: "Give your young people real recognition",
+      desc: "Every session completed earns LP. LP unlocks real rewards. But more importantly — it builds a profile. A young person who has done 50 sessions has something to show. Something that means more than a follower count."
     },
     {
-      icon: "🌍",
-      title: "Your students inspire each other on the Hub",
-      desc: "Every session completed and shared goes onto the Hub — a TikTok-style feed of real young people doing real things. Your students see peers from their school doing sessions and press Try IRL. Inspiration spreads through your community automatically."
+      icon: "📣",
+      title: "Reach young people between sessions",
+      desc: "Your admin dashboard lets you post sessions for any day of the week — evenings, weekends, holidays. You stay connected with your young people even when they are not physically with you."
     },
-  ]
-
-  const problems = [
-    { stat: "5 / day", label: "Young people lost to suicide in England every single day" },
-    { stat: "73%", label: "Cut in youth services across the UK since 2010" },
-    { stat: "1.9M", label: "Young people on NHS mental health waiting lists" },
-    { stat: "54%", label: "Rise in knife crime over the last decade" },
+    {
+      icon: "💜",
+      title: "The young people who need this most",
+      desc: "The ones who show up every week, train hard, give back to their community — and get nothing publicly for it. IRL gives them the recognition they deserve. A profile built on what they have actually done. Not on how many people follow them."
+    },
   ]
 
   return (
@@ -72,7 +65,7 @@ export default function Institutions() {
         <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
           <Link href="/" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Home</Link>
           <Link href="/about" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>About</Link>
-          <Link href="/org" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Youth Orgs</Link>
+          <Link href="/institutions" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Institutions</Link>
           <a href="https://app.joinirl.co.uk" style={{ padding: "10px 20px", background: "linear-gradient(135deg, #B400FF, #00D4FF)", color: "white", fontSize: "13px", fontWeight: 700, textDecoration: "none", borderRadius: "8px" }}>
             Launch App ⚡
           </a>
@@ -85,49 +78,54 @@ export default function Institutions() {
         padding: "120px 48px 80px", maxWidth: "1100px", margin: "0 auto"
       }}>
         <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "3px", color: "rgba(255,255,255,0.3)", marginBottom: "32px", textTransform: "uppercase" }}>
-          For Institutions
+          For Youth Orgs & Communities
         </p>
         <h1 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(48px, 7vw, 88px)", fontWeight: 900, letterSpacing: "-3px", lineHeight: 1.0, marginBottom: "40px", maxWidth: "820px" }}>
-          Your students need you<br />even when they are<br /><span style={{ color: "#00D4FF" }}>not with you.</span>
+          Your young people<br />do real things.<br /><span style={{ color: "#B400FF" }}>Now the world sees it.</span>
         </h1>
         <p style={{ fontSize: "20px", color: "rgba(255,255,255,0.4)", maxWidth: "580px", lineHeight: 1.7, marginBottom: "56px" }}>
-          You do everything you can while your students are with you. The moment they leave, you lose visibility. That is when the damage happens — alone, at night, on a screen. IRL closes that gap.
+          The young people who train with you, volunteer with you and give back through you deserve recognition. IRL gives it to them — and gives your organisation the visibility and tools to grow.
         </p>
         <div style={{ display: "flex", gap: "16px" }}>
-          <a href="mailto:alieu@joinirl.co.uk" style={{ padding: "14px 28px", background: "white", color: "#080808", fontSize: "14px", fontWeight: 700, textDecoration: "none", borderRadius: "10px" }}>
+          <a href="mailto:alieu@joinirl.co.uk" style={{ padding: "14px 28px", background: "linear-gradient(135deg, #B400FF, #00D4FF)", color: "white", fontSize: "14px", fontWeight: 700, textDecoration: "none", borderRadius: "10px" }}>
             Get in Touch
           </a>
           <a href="https://app.joinirl.co.uk" style={{ padding: "14px 28px", border: "1px solid rgba(255,255,255,0.15)", color: "white", fontSize: "14px", fontWeight: 500, textDecoration: "none", borderRadius: "10px" }}>
-            See the App
+            Try the App Free
           </a>
         </div>
       </section>
 
       <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", margin: "0 48px" }} />
 
-      {/* THE PROBLEM */}
+      {/* WHO THIS IS FOR */}
       <section style={{ padding: "120px 48px" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "3px", color: "rgba(255,255,255,0.3)", marginBottom: "32px", textTransform: "uppercase" }}>The Context</p>
-          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 900, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "64px", maxWidth: "600px" }}>
-            The young people in your care are carrying more than you see.
+          <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "3px", color: "rgba(255,255,255,0.3)", marginBottom: "32px", textTransform: "uppercase" }}>Who This Is For</p>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 900, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "48px", maxWidth: "600px" }}>
+            If you work with young people in the real world, this is for you.
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2px" }}>
-            {problems.map((p, i) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+            {[
+              "Boxing gyms and martial arts clubs",
+              "Grassroots football and sports clubs",
+              "Youth clubs and community centres",
+              "Mentoring and after-school programmes",
+              "Community volunteer organisations",
+              "Faith-based youth groups",
+              "Alternative provision and PRUs",
+              "Gang exit and diversion programmes",
+              "Any org that believes in real life"
+            ].map((item, i) => (
               <div key={i} style={{
                 background: "#0d0d12", border: "1px solid rgba(255,255,255,0.06)",
-                padding: "40px 28px", position: "relative"
+                borderRadius: "14px", padding: "20px 24px",
+                display: "flex", alignItems: "center", gap: "12px"
               }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, #B400FF, #00D4FF)" }} />
-                <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "36px", fontWeight: 900, color: "white", lineHeight: 1, marginBottom: "12px" }}>{p.stat}</div>
-                <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.4)", lineHeight: 1.6 }}>{p.label}</p>
+                <span style={{ color: "#B400FF", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", lineHeight: 1.5 }}>{item}</p>
               </div>
             ))}
-          </div>
-          <div style={{ marginTop: "48px", background: "#0d0d12", border: "1px solid rgba(255,255,255,0.06)", borderRadius: "20px", padding: "40px" }}>
-            <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.6)", lineHeight: 1.8, maxWidth: "720px" }}>
-              You are doing your best. But social media is working against you. It rewards how young people look, not what they do. It builds comparison and pressure that follows your students home every evening. IRL is what happens when the reward system is redesigned.
-            </p>
           </div>
         </div>
       </section>
@@ -139,14 +137,11 @@ export default function Institutions() {
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "3px", color: "rgba(255,255,255,0.3)", marginBottom: "32px", textTransform: "uppercase" }}>What You Get</p>
           <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(32px, 4vw, 52px)", fontWeight: 900, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "80px", maxWidth: "600px" }}>
-            Built for your students.<br />Designed for your team.
+            Tools to grow your community<br />and prove your impact.
           </h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px" }}>
             {features.map((f, i) => (
-              <div key={i} style={{
-                background: "#0d0d12", border: "1px solid rgba(255,255,255,0.06)",
-                padding: "48px 40px"
-              }}>
+              <div key={i} style={{ background: "#0d0d12", border: "1px solid rgba(255,255,255,0.06)", padding: "48px 40px" }}>
                 <div style={{ fontSize: "32px", marginBottom: "20px" }}>{f.icon}</div>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: "20px", fontWeight: 700, color: "white", marginBottom: "14px", lineHeight: 1.2 }}>{f.title}</div>
                 <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8 }}>{f.desc}</p>
@@ -158,21 +153,34 @@ export default function Institutions() {
 
       <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", margin: "0 48px" }} />
 
+      {/* QUOTE */}
+      <section style={{ padding: "120px 48px", textAlign: "center" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <p style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(24px, 3.5vw, 40px)", fontWeight: 700, color: "white", lineHeight: 1.35, marginBottom: "24px", letterSpacing: "-0.5px" }}>
+            "The young people who need IRL most are already in your building. They just need somewhere that recognises what they do."
+          </p>
+          <p style={{ fontSize: "14px", color: "rgba(255,255,255,0.3)", fontStyle: "italic" }}>Alieu Sankoh, Founder — IRL Connect</p>
+        </div>
+      </section>
+
+      <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", margin: "0 48px" }} />
+
       {/* FREE */}
       <section style={{ padding: "120px 48px", textAlign: "center" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <h2 style={{ fontFamily: "'Syne', sans-serif", fontSize: "clamp(36px, 5vw, 64px)", fontWeight: 900, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: "24px" }}>
-            Completely free.<br /><span style={{ color: "#00D4FF" }}>No catch.</span>
+            Free for every<br /><span style={{ color: "#B400FF" }}>youth organisation.</span>
           </h2>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8, marginBottom: "48px" }}>
-            IRL is free for all founding institutions. No trial period. No hidden fees. No contract. We are removing every barrier to getting this in front of young people who need it.
+            No subscription. No contracts. No cost. We are here for the mission, not the money. Get your organisation on IRL today and give your young people the recognition they deserve.
           </p>
           <a href="mailto:alieu@joinirl.co.uk" style={{
             display: "inline-block", padding: "16px 40px",
-            background: "white", color: "#080808",
-            fontSize: "15px", fontWeight: 700, textDecoration: "none", borderRadius: "12px"
+            background: "linear-gradient(135deg, #B400FF, #00D4FF)",
+            color: "white", fontSize: "15px", fontWeight: 700,
+            textDecoration: "none", borderRadius: "12px"
           }}>
-            Get in Touch — alieu@joinirl.co.uk
+            Get Started — alieu@joinirl.co.uk
           </a>
         </div>
       </section>

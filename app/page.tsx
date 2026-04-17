@@ -101,17 +101,16 @@ export default function Home() {
           <span style={{ color: "white" }}>IR</span>
           <span style={{ background: "#B400FF", color: "#00D4FF", padding: "2px 8px", border: "2px solid #00D4FF", fontSize: 18, fontWeight: 800, fontFamily: "'Syne',sans-serif" }}>L</span>
         </a>
-        <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: 32 }}>
-          <nav style={{ display: "flex", gap: 32, alignItems: "center", background: "none", border: "none", padding: 0 }}>
-            <a href="#problem">The Problem</a>
-            <a href="#solution">What We Do</a>
-            <a href="#institutions">Institutions</a>
-            <a href="#orgs">Youth Orgs</a>
-          </nav>
-          <a href="https://app.joinirl.co.uk" className="btn-primary" style={{ padding: "10px 22px", fontSize: 14 }}>
-            Launch App ⚡
-          </a>
-        </div>
+       <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "32px" }}>
+  <nav style={{ display: "flex", gap: "32px", alignItems: "center", background: "none", border: "none", padding: 0 }}>
+    <a href="/about" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>About</a>
+    <a href="/institutions" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>Institutions</a>
+    <a href="/org" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>Youth Orgs</a>
+  </nav>
+  <a href="https://app.joinirl.co.uk" className="btn-primary" style={{ padding: "10px 22px", fontSize: 14 }}>
+    Launch App ⚡
+  </a>
+</div>
       </nav>
 
       {/* HERO */}
