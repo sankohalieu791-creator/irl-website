@@ -165,7 +165,7 @@ export default function Institutions() {
             Completely free.<br /><span style={{ color: "#00D4FF" }}>No catch.</span>
           </h2>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8, marginBottom: "48px" }}>
-            IRL is free for all founding institutions. No trial period. No hidden fees. No contract. We are removing every barrier to getting this in front of young people who need it.
+            IRL is free for Till we launch our final App. No trial period. No hidden fees. No contract. We are removing every barrier to getting this in front of young people who need it.
           </p>
           <a href="mailto:alieu@joinirl.co.uk" style={{
             display: "inline-block", padding: "16px 40px",
