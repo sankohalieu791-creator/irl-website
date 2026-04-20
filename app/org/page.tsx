@@ -172,7 +172,7 @@ export default function Org() {
             Free for every<br /><span style={{ color: "#B400FF" }}>youth organisation.</span>
           </h2>
           <p style={{ fontSize: "18px", color: "rgba(255,255,255,0.4)", lineHeight: 1.8, marginBottom: "48px" }}>
-            No subscription. No contracts. No cost. We are here for the mission, not the money. Get your organisation on IRL today and give your young people the recognition they deserve.
+            No subscription. No contracts. No cost Until we Launch our final App. We are here for the mission, not the money. Get your organisation on IRL today and give your young people the recognition they deserve.
           </p>
           <a href="mailto:alieu@joinirl.co.uk" style={{
             display: "inline-block", padding: "16px 40px",
