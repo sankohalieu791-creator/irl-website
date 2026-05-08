@@ -69,13 +69,10 @@ export default function Institutions() {
           <span style={{ fontSize: "22px", fontWeight: 900, letterSpacing: "-1px", color: "white", fontFamily: "'Syne', sans-serif" }}>IR</span>
           <span style={{ fontSize: "20px", fontWeight: 900, padding: "2px 8px", background: "#B400FF", color: "#00D4FF", border: "2px solid #00D4FF" }}>L</span>
         </Link>
-        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-          <Link href="/" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Home</Link>
-          <Link href="/about" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>About</Link>
-          <Link href="/org" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Youth Orgs</Link>
-          <a href="https://app.joinirl.co.uk" style={{ padding: "10px 20px", background: "linear-gradient(135deg, #B400FF, #00D4FF)", color: "white", fontSize: "13px", fontWeight: 700, textDecoration: "none", borderRadius: "8px" }}>
-            Launch App ⚡
-          </a>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px" }}>
+          <Link href="/" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>Home</Link>
+          <Link href="/about" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>About</Link>
+          <Link href="/org" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>Youth Orgs</Link>
         </div>
       </nav>
 
@@ -93,12 +90,9 @@ export default function Institutions() {
         <p style={{ fontSize: "20px", color: "rgba(255,255,255,0.4)", maxWidth: "580px", lineHeight: 1.7, marginBottom: "56px" }}>
           You do everything you can while your students are with you. The moment they leave, you lose visibility. That is when the damage happens — alone, at night, on a screen. IRL closes that gap.
         </p>
-        <div style={{ display: "flex", gap: "16px" }}>
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
           <a href="mailto:alieu@joinirl.co.uk" style={{ padding: "14px 28px", background: "white", color: "#080808", fontSize: "14px", fontWeight: 700, textDecoration: "none", borderRadius: "10px" }}>
             Get in Touch
-          </a>
-          <a href="https://app.joinirl.co.uk" style={{ padding: "14px 28px", border: "1px solid rgba(255,255,255,0.15)", color: "white", fontSize: "14px", fontWeight: 500, textDecoration: "none", borderRadius: "10px" }}>
-            See the App
           </a>
         </div>
       </section>

@@ -62,13 +62,10 @@ export default function Org() {
           <span style={{ fontSize: "22px", fontWeight: 900, letterSpacing: "-1px", color: "white", fontFamily: "'Syne', sans-serif" }}>IR</span>
           <span style={{ fontSize: "20px", fontWeight: 900, padding: "2px 8px", background: "#B400FF", color: "#00D4FF", border: "2px solid #00D4FF" }}>L</span>
         </Link>
-        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-          <Link href="/" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Home</Link>
-          <Link href="/about" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>About</Link>
-          <Link href="/institutions" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Institutions</Link>
-          <a href="https://app.joinirl.co.uk" style={{ padding: "10px 20px", background: "linear-gradient(135deg, #B400FF, #00D4FF)", color: "white", fontSize: "13px", fontWeight: 700, textDecoration: "none", borderRadius: "8px" }}>
-            Launch App ⚡
-          </a>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px" }}>
+          <Link href="/" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>Home</Link>
+          <Link href="/about" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>About</Link>
+          <Link href="/institutions" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>Institutions</Link>
         </div>
       </nav>
 
@@ -86,12 +83,9 @@ export default function Org() {
         <p style={{ fontSize: "20px", color: "rgba(255,255,255,0.4)", maxWidth: "580px", lineHeight: 1.7, marginBottom: "56px" }}>
           The young people who train with you, volunteer with you and give back through you deserve recognition. IRL gives it to them — and gives your organisation the visibility and tools to grow.
         </p>
-        <div style={{ display: "flex", gap: "16px" }}>
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
           <a href="mailto:alieu@joinirl.co.uk" style={{ padding: "14px 28px", background: "linear-gradient(135deg, #B400FF, #00D4FF)", color: "white", fontSize: "14px", fontWeight: 700, textDecoration: "none", borderRadius: "10px" }}>
             Get in Touch
-          </a>
-          <a href="https://app.joinirl.co.uk" style={{ padding: "14px 28px", border: "1px solid rgba(255,255,255,0.15)", color: "white", fontSize: "14px", fontWeight: 500, textDecoration: "none", borderRadius: "10px" }}>
-            Try the App Free
           </a>
         </div>
       </section>

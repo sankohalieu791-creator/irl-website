@@ -30,13 +30,10 @@ export default function About() {
           <span style={{ fontSize: "22px", fontWeight: 900, letterSpacing: "-1px", color: "white", fontFamily: "'Syne', sans-serif" }}>IR</span>
           <span style={{ fontSize: "20px", fontWeight: 900, padding: "2px 8px", background: "#B400FF", color: "#00D4FF", border: "2px solid #00D4FF", fontFamily: "'Syne', sans-serif" }}>L</span>
         </Link>
-        <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-          <Link href="/" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Home</Link>
-          <Link href="/institutions" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Institutions</Link>
-          <Link href="/org" style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", textDecoration: "none", fontWeight: 500 }}>Youth Orgs</Link>
-          <a href="https://app.joinirl.co.uk" style={{ padding: "10px 20px", background: "linear-gradient(135deg, #B400FF, #00D4FF)", color: "white", fontSize: "13px", fontWeight: 700, textDecoration: "none", borderRadius: "8px" }}>
-            Launch App ⚡
-          </a>
+        <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px" }}>
+          <Link href="/" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>Home</Link>
+          <Link href="/institutions" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>Institutions</Link>
+          <Link href="/org" style={{ color: "rgba(255,255,255,0.85)", fontSize: "14px", textDecoration: "none", fontWeight: 600 }}>Youth Orgs</Link>
         </div>
       </nav>
 

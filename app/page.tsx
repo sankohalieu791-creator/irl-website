@@ -101,15 +101,13 @@ export default function Home() {
           <span style={{ color: "white" }}>IR</span>
           <span style={{ background: "#B400FF", color: "#00D4FF", padding: "2px 8px", border: "2px solid #00D4FF", fontSize: 18, fontWeight: 800, fontFamily: "'Syne',sans-serif" }}>L</span>
         </a>
-       <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "32px" }}>
-  <nav style={{ display: "flex", gap: "32px", alignItems: "center", background: "none", border: "none", padding: 0 }}>
-    <a href="/about" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>About</a>
-    <a href="/institutions" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>Institutions</a>
-    <a href="/org" style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none", fontSize: 14, fontWeight: 500 }}>Youth Orgs</a>
+       <div className="desktop-nav" style={{ display: "flex", alignItems: "center", gap: "18px" }}>
+  <nav style={{ display: "flex", flexWrap: "wrap", gap: "18px", alignItems: "center", background: "none", border: "none", padding: 0 }}>
+    <a href="/" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>Home</a>
+    <a href="/about" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>About</a>
+    <a href="/institutions" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>Institutions</a>
+    <a href="/org" style={{ color: "rgba(255,255,255,0.85)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>Youth Orgs</a>
   </nav>
-  <a href="https://app.joinirl.co.uk" className="btn-primary" style={{ padding: "10px 22px", fontSize: 14 }}>
-    Launch App ⚡
-  </a>
 </div>
       </nav>
 
@@ -138,7 +136,6 @@ export default function Home() {
             IRL rewards young people for doing real things in the real world — not for how they look online. Built for a generation that deserves better than a like button.
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <a href="https://app.joinirl.co.uk" className="btn-primary">⚡ Try the App Free</a>
             <a href="mailto:alieu@joinirl.co.uk" className="btn-secondary">Get in Touch</a>
           </div>
         </div>
